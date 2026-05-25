@@ -6,7 +6,7 @@
 //   cargo run --bin socket_sim   -- 127.0.0.1:7879
 //   cargo run --bin thermometer_sim -- thermometer_sim.conf   (target_addr=127.0.0.1:9001)
 //   cargo run --bin thermometer_sim -- thermometer_sim2.conf  (target_addr=127.0.0.1:9002)
-//   cargo run --bin demo_simulators
+//   cargo run --bin simulators_smart_home
 
 use smart_home::{
     devices::socket::SmartSocket,
@@ -76,4 +76,16 @@ fn main() {
         Ok(text) => println!("{}", text),
         Err(e) => println!("Ошибка формирования отчёта: {}", e),
     }
+
+    // Ждём, ещё пока имитаторы пришлют первые данные
+    println!("Ожидание новых данных от имитаторов (2 секунды)...");
+    thread::sleep(Duration::from_secs(2));
+
+    // Новый отчёт о состоянии дома
+    println!("\n=== Новый отчёт о состоянии дома ===");
+    match home.report() {
+        Ok(text) => println!("{}", text),
+        Err(e) => println!("Ошибка формирования отчёта: {}", e),
+    }
+    
 }
