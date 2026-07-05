@@ -1,0 +1,10 @@
+[package]
+name = "ffi_smart_socket"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["rlib", "staticlib", "cdylib"]
+
+[dependencies]
+smart_home = { path = ".." }
