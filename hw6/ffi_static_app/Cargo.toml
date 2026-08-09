@@ -1,0 +1,7 @@
+[package]
+name = "ffi_static_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ffi_smart_socket = { path = "../ffi_smart_socket" }

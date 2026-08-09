@@ -1,0 +1,33 @@
+[workspace]
+members = [
+    ".",
+    "ffi_smart_socket",
+    "ffi_static_app",
+    "ffi_dynamic_app",
+    "ffi_c_static_app",
+    "backend",
+]
+resolver = "2"
+
+[package]
+name = "smart_home"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "local_smart_home"
+path = "src/bin/local_smart_home.rs"
+
+[[bin]]
+name = "socket_sim"
+path = "src/bin/socket_sim.rs"
+
+[[bin]]
+name = "thermometer_sim"
+path = "src/bin/thermometer_sim.rs"
+
+[[bin]]
+name = "simulators_smart_home"
+path = "src/bin/simulators_smart_home.rs"
